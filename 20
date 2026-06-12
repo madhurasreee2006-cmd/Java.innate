@@ -1,0 +1,27 @@
+import java.util.HashMap;
+import java.util.Scanner;
+
+public class CustomLoginSystem {
+    public static void main(String[] args) {
+        HashMap<String, String> loginDatabase = new HashMap<>();
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("=== CREATE YOUR ACCOUNT ===");
+        System.out.print("Choose a Username: ");
+        String registeredUser = scanner.nextLine();
+        System.out.print("Choose a Password: ");
+        String registeredPass = scanner.nextLine();
+        loginDatabase.put(registeredUser, registeredPass);
+        System.out.println("Account created successfully!\n");
+        System.out.println("=== LOGIN PAGE ===");
+        System.out.print("Enter Username: ");
+        String typedUsername = scanner.nextLine();
+        System.out.print("Enter Password: ");
+        String typedPassword = scanner.nextLine();
+        String storedPassword = loginDatabase.get(typedUsername);
+        if (storedPassword != null && storedPassword.equals(typedPassword)) {
+            System.out.println("\nWELCOME HOME"); } else {
+            System.out.println("\nInvalid username or password. Access Denied.");
+        }
+        scanner.close();
+    }
+}
